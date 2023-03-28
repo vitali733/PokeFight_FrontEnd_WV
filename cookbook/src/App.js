@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <div>
         <Navbar />
-        <Home />
+        
         <Routes>
           <Route exact path="/Home" component={Home} />
           <Route path="/about" component={About} />
