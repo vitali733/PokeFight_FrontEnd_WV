@@ -1,20 +1,17 @@
-import { useEffect } from "react";
+import { NavLink, Outlet } from "react-router-dom"
+
+
 
 export default function Recipes({ recipes }){
-   
-   
+      
     console.log(recipes ? recipes[0].name : "fetching failed")
 
     return(
         <>
-        <h2>here we will display all the recipe-links:</h2>
-        {recipes.map(recipe => <p>{recipe.name}</p> )}
+        {recipes && recipes.map((recipe, index) => <NavLink to="recipe" key={index} >{recipe.name}</NavLink> )}
+        <Outlet />
         </>
     );
 };
 
 
-/*
-<p>{recipes[0]}</p>
-
-*/

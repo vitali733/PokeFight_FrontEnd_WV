@@ -2,6 +2,6 @@
 
 export default function Recipe(){
     return(
-        <p>this will be our content</p>
+        <h1>Here we will see the selected Recipe</h1>
     );
 };
