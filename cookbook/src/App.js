@@ -1,33 +1,31 @@
-import logo from './logo.svg';
+
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import { Route, Routes, NavLink} from 'react-router-dom';
 import Home from './comp/Home';
-import About from './comp/About';
-import Contact from './comp/Contact';
-import Navbar from './comp/Navbar';
+import RecipeList from "./comp/RecipeList.js";
+import Recipies from "./comp/Recipies.js";
+import Contact from "./comp/Contact.js";
+
 
 function App() {
   return (
-    <div>
-      {/* <nav>
-        <NavLink to={"/Home"}>
-            Home
-        </NavLink>
-      </nav> */}
-    
-    <BrowserRouter>
-      <div>
-        <Navbar />
+    <>
+    <nav>
+      <ul>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="recipies">Recipies</NavLink></li>
+        <li><NavLink to="Contact">Contact</NavLink></li>
+      </ul>
+    </nav>   
+
 
         <Routes>
-          <Route exact path="/Home" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
+          <Route path="/" element={<Home/>}/>
+          <Route path="recipies" element={<Recipies/>} />
+          <Route path="contact" element={<Contact/>} />
         </Routes>
-      </div>
-    </BrowserRouter>
-    </div>
+    </>
   );
 }
 

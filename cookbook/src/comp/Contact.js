@@ -1,12 +1,7 @@
-import React from 'react';
 
-function Contact() {
-  return (
-    <div>
-      <h1>Contact Page</h1>
-      <p>Welcome to the home page!</p>
-    </div>
-  );
-}
 
-export default Contact;
+export default function Contact(){
+    return(
+        <h2>the author wants to be mysterious and doenst share cont infos</h2>
+    );
+};

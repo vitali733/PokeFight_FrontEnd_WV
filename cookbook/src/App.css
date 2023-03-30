@@ -7,7 +7,7 @@ body{
  
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(yellow.jpg);
+  /*background-image: url(yellow.jpg);*/
 }
 Form{ 
 
