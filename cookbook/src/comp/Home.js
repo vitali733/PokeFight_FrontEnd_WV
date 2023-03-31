@@ -3,7 +3,7 @@ import React from 'react';
 function Home() {
   return (
     <>
-      <h1>Welcome to our recipes homepage!</h1>
+      <h1>A minimalists recipes homepage!</h1>
     </>
   );
 }

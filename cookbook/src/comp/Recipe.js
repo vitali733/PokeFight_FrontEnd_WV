@@ -11,14 +11,14 @@ export default function Recipe({ recipes }){
 
     return(
         <>
+        <h2>{filteredRecipe.name}</h2>
         <img src={filteredRecipe.imgUrl}></img>
-       <h3>{filteredRecipe.name}</h3>
        <p>time: {filteredRecipe.time}</p>
        <p>date of creation: {filteredRecipe.creationDate.slice(0,10)}</p>
        <h3>Ingredients</h3>
-       <ol>
-            {filteredRecipe.instructions.map(ingredient => <li>{ingredient}</li> )}
-       </ol>
+       <ul>
+            {filteredRecipe.ingredients.map(ingredient => <li>{ingredient}</li> )}
+       </ul>
        <h3>Instructions</h3>
        <ol>
             {filteredRecipe.instructions.map(instruction => <li>{instruction}</li> )}
