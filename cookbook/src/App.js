@@ -4,7 +4,7 @@ import './App.css';
 import { Route, Routes, NavLink} from 'react-router-dom';
 import Home from './comp/Home';
 import Recipes from "./comp/Recipes.js";
-import Recipe from "./comp/Recipes.js";
+import Recipe from "./comp/Recipe.js";
 import Contact from "./comp/Contact.js";
 import useContentful from "./comp/useContentful.js";
 
@@ -20,18 +20,18 @@ function App() {
   return (
     <>
     <nav>
-      <ul>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="recipes">Recipes</NavLink ></li>
-        <li><NavLink to="Contact">Contact</NavLink></li>
-      </ul>
+      
+        <NavLink to="/">Home</NavLink> | 
+        <NavLink to="recipes">Recipes</NavLink > | 
+        <NavLink to="Contact">Contact</NavLink> 
+      
     </nav>   
 
         <Routes>
           <Route path="/" element={<Home/>}/>
           {recipes && <Route path="recipes" element={<Recipes recipes={ recipes }/>} >
              
-                <Route path="recipe" element={ <Recipe/> }/>
+                <Route path=":name" element={ <Recipe recipes={ recipes }/> }/>
             
           </Route>}
           <Route path="contact" element={<Contact/>} />
