@@ -2,11 +2,11 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import { Route, Routes, NavLink} from 'react-router-dom';
-import Home from './comp/Home';
-import Recipes from "./comp/Recipes.js";
-import Recipe from "./comp/Recipe.js";
-import Contact from "./comp/Contact.js";
-import useContentful from "./comp/useContentful.js";
+import Home from './components/Home';
+import Recipes from "./components/Recipes.js";
+import Recipe from "./components/Recipe.js";
+import Contact from "./components/Contact.js";
+import useContentful from "./components/useContentful.js";
 
 
 function App() {
