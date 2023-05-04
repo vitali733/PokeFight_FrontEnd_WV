@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom"
-import getSinglePokeData from '../utils/getPokeData.js'
+import getSinglePokeData from '../utils/getSinglePokeData.js'
 import './Pokedex.css'
 
 export default function Pokedex(){
     const [pokeData, setPokeData] = useState([])
     const [pageNum, setPageNum] = useState(1)
-
-    const navigate = useNavigate();
 
     const pokemonPerPage = 50
           
@@ -26,16 +23,7 @@ export default function Pokedex(){
         generatePokedex(pageNum - 1) 
     }
 
-    function handlePokeClick(e){
-        console.log('handlePokeClick executed')
-        const pokeName = e.target.parentElement.firstChild.innerText.split(' ')[1]
-        console.log('redirecting to: ' +  pokeName  )
-        navigate(`/pokedex/${pokeName}`)
-        
-    }
-
     async function generatePokedex(page){
-        console.log('executing generatePokedex')
         const arr = []
         try{
         for(let i = pokemonPerPage*(page-1)+1 ; i < pokemonPerPage*page; i++){
@@ -43,7 +31,6 @@ export default function Pokedex(){
             arr.push(data)
         }
         setPokeData(arr)
-        console.log(arr)
         } catch(error){
             console.log(error)
         }
@@ -51,11 +38,6 @@ export default function Pokedex(){
    
     return(
         <>
-        <br/>
-        <form>
-            <input type="text"/>
-            <button>search</button>
-        </form>
         <br/>
         <div className='pagination'>
             <button disabled={pageNum === 1 ? true : false} onClick={handlePrevBtn}>prev page</button>
@@ -65,7 +47,7 @@ export default function Pokedex(){
         <br/>
         <div  className = 'parent-container'>
         {pokeData.map((e, index) =>         
-            <div key={index} className = 'poke-container' onClick={handlePokeClick}>
+            <div key={index} className = 'poke-container' >
                 <span>#{e.id} {e.name}</span>
                 <img src= {e.sprites.front_default} alt={`Pokemon ${e.name}`}/>
             </div>

@@ -5,10 +5,10 @@ import { Route, Routes, NavLink} from 'react-router-dom';
 import Home from './components/Home';
 import Recipes from "./components/Recipes.js";
 import Recipe from "./components/Recipe.js";
-import Contact from "./components/Contact.js";
 import useContentful from "./utils/useContentful.js";
-import Pokedex from './components/Pokedex.js'
-import SinglePokemon from './components/SinglePokemon'
+import PokeDexSite from './components/PokeDexSite.js'
+import PokeFight from './components/PokeFight.js'
+import SinglePokemonSite from './components/SinglePokemonSite'
 
 function App() {
   const [recipes, setRecipes] = useState();
@@ -23,21 +23,20 @@ function App() {
     <>
     <nav>
         <NavLink className="navlink" to="/">Home</NavLink>
-        <NavLink className="navlink" to="pokedex">Pokedex</NavLink> 
+        <NavLink className="navlink" to="pokedex">Pokedex </NavLink> 
+        <NavLink className="navlink" to="pokefight">PokeFight</NavLink> 
         <NavLink className="navlink" to="recipes">Recipes</NavLink >
-        <NavLink className="navlink" to="Contact">Contact</NavLink> 
     </nav>   
 
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="pokedex" element={ <Pokedex /> } ></Route> 
+          <Route path="pokedex" element={ <PokeDexSite /> } ></Route> 
+          <Route path="pokedex/:pokeID" element={ <SinglePokemonSite /> } ></Route> 
+          <Route path="pokefight" element={ <PokeFight /> } ></Route> 
           { recipes && <Route path="recipes" element={ <Recipes recipes={ recipes }/> } >
              
-                <Route path=":name" element={ <Recipe recipes={ recipes }/> }/>
-            
+                <Route path=":name/" element={ <Recipe recipes={ recipes }/> }/>
           </Route>}
-          <Route path="contact" element={<Contact/>} />
-          <Route path="pokedex/:pokeName" element={ <SinglePokemon /> } ></Route> 
         </Routes>
     </>
   );
